@@ -38,18 +38,18 @@ async function activate(context) {
 		if (response == false) {
 			return;
 		} else {
-			// const response = await vscode.window.showInputBox({
-			// 	prompt: "Tapez Accepte pour continuer"
-			// });
-			// if (response == "Acceptez") {
+			const response = await vscode.window.showInputBox({
+				prompt: "Tapez Accepte pour continuer"
+			});
+			if (response == "Acceptez") {
 				statusBar.setMessage("$(gear~spin) Deploiment en cours");
 			let min = await minify();
 			if (min) {
 				statusBar.setMessage("$(cloud-upload) Deploye");
-				console.log("blabla");
+				await vscode.commands.executeCommand("extension.ftpsyncupload");
 			}
 		}
-			// }
+			}
 		}
 	vscode.commands.registerCommand('deploye.deploye', deploye);
 
