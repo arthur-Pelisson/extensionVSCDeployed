@@ -39,7 +39,7 @@ async function activate(context) {
 			return;
 		} else {
 			const response = await vscode.window.showInputBox({
-				prompt: "Tapez Accepte pour continuer"
+				prompt: "Tapez Acceptez pour continuer"
 			});
 			if (response == "Acceptez") {
 				statusBar.setMessage("$(gear~spin) Deploiment en cours");
